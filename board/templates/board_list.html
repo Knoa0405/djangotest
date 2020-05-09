@@ -25,6 +25,38 @@
         </table>
     </div>
 </div>
+<div class="row mt-2">
+    <div class="col-12">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if boards.has_previous %}
+                <li class="page-item">
+                    <!-- href 에 ?p 해주는 이유 ? 가 GET을 가져온다는 것을 url에 표시해서 GET 가져와야 렌더링이 가능함 -->
+                    <a class="page-link" href="?p={{ boards.previous_page_number }}">이전으로</a>
+                </li>
+                {% else %}
+                <!-- page-item 에서 이전 페이지가 없으면 disabled 부트스트랩으로 화면에 표시 a 태그엔 적용 불가하고 li 태그에 disabled 적용가능-->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">이전으로</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <a class="page-link" href="#">{{ boards.number }} / {{ boards.paginator.num_pages }}</a>
+                </li>
+                {% if boards.has_next %}
+                <li class="page-item">  
+                    <a class="page-link" href="?p={{ boards.next_page_number }}">다음으로</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">다음으로</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
         <button class="btn btn-primary">글쓰기</button>
