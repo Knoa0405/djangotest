@@ -14,7 +14,7 @@
             </thead>
             <tbody class="text-dark">
                 {%for board in boards %}
-                <tr>
+                <tr onclick="location.href='/board/detail/{{board.id}}/'">
                     <th>{{ board.id }}</th>
                     <th>{{ board.title }}</th>
                     <th>{{ board.writer }}</th>
@@ -59,7 +59,7 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <button class="btn btn-primary">글쓰기</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='/board/write/'">글쓰기</button>
     </div>
 </div>
 {% endblock %}
