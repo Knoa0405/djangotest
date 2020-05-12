@@ -11,10 +11,11 @@ class Board(models.Model) :
     # fcuser (가리키는 모델)이 삭제되면? 자기(model) 자신을 어떻게 할건지.. (models.cascade,SET_Null,default)
     writer = models.ForeignKey('fcuser.Fcuser',on_delete=models.CASCADE,
                                 verbose_name='작성자')
+    tags = models.ManyToManyField('tag.Tag',verbose_name='태그')
     registered_dttm = models.DateTimeField(auto_now_add=True,
                                            verbose_name='등록시간')
   
-    # id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True) <  - 자동 생성된다.
     def __str__(self) :
         return self.title
 

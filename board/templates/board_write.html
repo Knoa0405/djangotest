@@ -12,7 +12,8 @@
                 {% ifequal field.name "contents" %}
                 <textarea class="form-control" name="{{field.name}}" placeholder="{{field.label}}"></textarea>
                 {% else %}
-                <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label}}" placeholder="{{field.label}}" name="{{field.name}}"/>
+                <input type="{{field.field.widget.input_type}}" 
+                class="form-control" id="{{field.id_for_label}}" placeholder="{{field.label}}" name="{{field.name}}"/>
                 {% endifequal %}
             </div>
             {% if field.errors %}
